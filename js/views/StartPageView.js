@@ -10,7 +10,7 @@ class StartPageView extends View {
                 <h1>Welcome to the Frontend Quiz!</h1>
                 <p>Pick a subject to get started.</p>
             </section>
-            <ul class="quiz-categories">
+            <ul class="select-choice">
                 ${this._data.map(el => `
                     <li>
                         <div>
