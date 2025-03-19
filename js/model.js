@@ -1,5 +1,7 @@
 export const state = {
-    data: {}
+    data: {},
+    selectedCategory: '',
+    categoryIcon: ''
 }
 
 export const getData = async (path) => {

@@ -1,30 +1,43 @@
 import * as model from './model.js';
 import startPageView from './views/StartPageView.js';
-import quizQuestionView from './views/QuizQuestionView.js';
-import addClickObserver from './helpers.js';
+import quizView from './views/QuizView.js';
+import resultView from './views/ResultView.js';
 
-let observer;
+const quizHeader = document.getElementById('current-quiz-title');
 
-// window.addEventListener('click', (e) => {
-//     console.log(e.target);
-// })
+const selectCategoryAndStartQuiz = (categoryName) => {    
+    const currentQuizInfo = model.state.data.quizzes.find((q) => q.title === categoryName);
+    const currentQuestions = model.state.data.quizzes.find((q) => q.title === categoryName).questions;
+    model.state.selectedCategory = categoryName;
+    model.state.categoryIcon = currentQuizInfo.icon;
+    const data = {questions: currentQuestions, currentIndex: 0};
 
-const selectAnswer = () => {
-    console.log('answer');
+    quizHeader.insertAdjacentHTML('afterbegin', `
+        <div>
+            <img src=${model.state.categoryIcon}>
+        </div>
+        <span>${model.state.selectedCategory}</span>
+    `);
+
+    quizView.render(data);
 }
 
-const selectCategoryAndStartQuiz = (categoryName) => {
-    console.log(categoryName.trim());
-    const data = {"data": model.state.data.quizzes.find((q) => q.title === categoryName), currentIndex: 0}
-    observer.disconnect();
-    observer = addClickObserver("main", ".options-list", selectAnswer);
-    quizQuestionView.render(data);
+const showResult = (correctAnswers, totalQuestions) => {
+    resultView.render({correctAnswers, totalQuestions, quizTitle: model.state.selectedCategory, icon: model.state.categoryIcon});
+}
+
+const returnToHome = () => {
+    model.state.selectedCategory = '';
+    model.state.categoryIcon = '';
+    quizHeader.innerHTML = '';
+    startPageView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
 }
 
 async function init() {
     await model.getData('data.json');
-    console.log(model.state.data);
-    observer = addClickObserver("main", ".category-list", selectCategoryAndStartQuiz);
+    startPageView.addClickHandler(selectCategoryAndStartQuiz);
+    quizView.addClickHandler(showResult);
+    resultView.addClickHandler(returnToHome);
     startPageView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
 }
 

@@ -4,6 +4,13 @@ class StartPageView extends View {
     _data;
     _parentElement = document.querySelector('main');
 
+    addClickHandler(action) {
+        this._parentElement.addEventListener('click', (e) => {
+            if(e.target.closest('ul') && e.target.closest('ul').classList.contains('category-list'))
+                action(e.target.textContent || e.target.parentElement.dataset.title);
+        });
+    }
+
     _generateMarkup() {
         return `
             <section class="welcome-message">
