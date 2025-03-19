@@ -10,13 +10,13 @@ class StartPageView extends View {
                 <h1>Welcome to the Frontend Quiz!</h1>
                 <p>Pick a subject to get started.</p>
             </section>
-            <ul class="select-choice">
+            <ul class="category-list">
                 ${this._data.map(el => `
                     <li>
-                        <div>
+                        <div data-title='${el.title}'>
                             <img src=${el.icon}>
                         </div>
-                        ${el.title}
+                        <span>${el.title}</span>
                     </li>
                 `).join('')}
             </ul>
