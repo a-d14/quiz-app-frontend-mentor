@@ -1,0 +1,5 @@
+@use "../abstracts" as a;
+
+.quiz {
+    padding: a.rem(32) a.rem(24);
+}

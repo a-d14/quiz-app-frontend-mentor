@@ -7,10 +7,15 @@
         @include a.add-flex($gap: a.rem(16), $align-items: center);
         padding: a.rem(12);
         background-color: var(--list-item-background);
+        border: 3px solid transparent;
         border-radius: a.rem(12);
 
         & > div {
             width: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
+            height: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
+            display: grid;
+            align-content: center;
+            flex-shrink: 0;
             padding: a.rem(6);
             border-radius: a.rem(8);
         }
@@ -48,6 +53,11 @@
 
     & > li {
 
+        &:hover > div {
+            color: purple;
+            background-color: #F6E7FF;
+        }
+
         & > div {
             background-color: #F4F6FA;
             color: #626C7F;
@@ -61,7 +71,7 @@
                 color: #FFFFFF;
             }
 
-            border: 3px solid #A729F5;
+            border-color: #A729F5;
 
         }
 
@@ -71,7 +81,7 @@
                 color: #FFFFFF;
             }
 
-            border: 3px solid #26D782;
+            border-color: #26D782;
         }
 
         &.incorrect {
@@ -80,7 +90,7 @@
                 color: #FFFFFF;
             }
 
-            border: 3px solid #EE5454;
+            border-color:#EE5454;
         }
 
     }

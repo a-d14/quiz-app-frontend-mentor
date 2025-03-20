@@ -31,6 +31,7 @@ const selectCategoryAndStartQuiz = (categoryName) => {
     `);
 
     quizView.render(data);
+    setTimeout(() => quizView.addClickHandler(showResult), 0);
 }
 
 const showResult = (correctAnswers, totalQuestions) => {
@@ -47,7 +48,7 @@ const returnToHome = () => {
 async function init() {
     await model.getData('data.json');
     categorySelectView.addClickHandler(selectCategoryAndStartQuiz);
-    quizView.addClickHandler(showResult);
+    // quizView.addClickHandler(showResult);
     resultView.addClickHandler(returnToHome);
     categorySelectView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
 }

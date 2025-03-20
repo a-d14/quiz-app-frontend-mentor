@@ -1,0 +1,16 @@
+@use '../abstracts/' as a;
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: a.rem(24) a.rem(32);
+    border-radius: a.rem(16);
+    background-color: #A729F5;
+    color: #FFFFFF;
+
+    &:hover {
+        opacity: 60%;
+        cursor: pointer;
+    }
+
+}
