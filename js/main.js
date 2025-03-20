@@ -3,6 +3,17 @@ import startPageView from './views/StartPageView.js';
 import quizView from './views/QuizView.js';
 import resultView from './views/ResultView.js';
 
+const rootElement = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('change', (e) => {
+    if(!e.target.checked) {
+        rootElement.dataset.theme = 'light';
+    } else {
+        rootElement.dataset.theme = 'dark';
+    }
+});
+
 const quizHeader = document.getElementById('current-quiz-title');
 
 const selectCategoryAndStartQuiz = (categoryName) => {    

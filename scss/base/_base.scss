@@ -1,0 +1,23 @@
+:root[data-theme="light"] {
+    --mobile-background: url("assets/images/pattern-background-mobile-light.svg");
+    --tablet-background: url("assets/images/pattern-background-tablet-light.svg");
+    --desktop-background: url("assets/images/pattern-background-desktop-light.svg");
+
+    --page-background: #F4F6FA;
+    --font-color: #313E51;
+
+}
+
+:root[data-theme="dark"] {
+    --mobile-background: url("assets/images/pattern-background-mobile-dark.svg");
+    --tablet-background: url("assets/images/pattern-background-tablet-dark.svg");
+    --desktop-background: url("assets/images/pattern-background-desktop-dark.svg");
+
+    --page-background: #313E51;
+    --font-color: #FFFFFF;
+}
+
+body {
+    background: var(--mobile-background) var(--page-background);
+    color: var(--font-color);
+}
