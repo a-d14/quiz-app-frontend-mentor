@@ -1,0 +1,88 @@
+@use '../abstracts' as a;
+
+%list {
+    @include a.add-flex($flex-direction: column, $gap: a.rem(12));
+
+    & > li {
+        @include a.add-flex($gap: a.rem(16), $align-items: center);
+        padding: a.rem(12);
+        background-color: var(--list-item-background);
+        border-radius: a.rem(12);
+
+        & > div {
+            width: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
+            padding: a.rem(6);
+            border-radius: a.rem(8);
+        }
+    }
+
+}
+
+.category-list {
+    @extend %list;
+
+    & > li[data-title="HTML"] > div {
+        background-color: #FFF1E9;
+    }
+
+    & > li[data-title="CSS"] > div {
+        background-color: #E0FDEF;
+    }
+
+    & > li[data-title="JavaScript"] > div {
+        background-color: #EBF0FF;
+    }
+
+    & > li[data-title="Accessibility"] > div {
+        background-color: #F6E7FF;
+    }
+}
+
+.options-list {
+    @extend %list;
+
+    & > li > img {
+        width: clamp(a.rem(32), a.rem(24) + 1.5vw, a.rem(40));
+        margin-left: auto;
+    }
+
+    & > li {
+
+        & > div {
+            background-color: #F4F6FA;
+            color: #626C7F;
+            text-align: center;
+        }
+
+        &.selected {
+
+            & > div {
+                background-color: #A729F5;
+                color: #FFFFFF;
+            }
+
+            border: 3px solid #A729F5;
+
+        }
+
+        &.correct {
+            & > div {
+                background-color: #26D782;
+                color: #FFFFFF;
+            }
+
+            border: 3px solid #26D782;
+        }
+
+        &.incorrect {
+            & > div {
+                background-color: #EE5454;
+                color: #FFFFFF;
+            }
+
+            border: 3px solid #EE5454;
+        }
+
+    }
+
+}

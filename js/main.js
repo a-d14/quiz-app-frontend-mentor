@@ -1,5 +1,5 @@
 import * as model from './model.js';
-import startPageView from './views/StartPageView.js';
+import categorySelectView from './views/CategorySelectView.js';
 import quizView from './views/QuizView.js';
 import resultView from './views/ResultView.js';
 
@@ -41,15 +41,15 @@ const returnToHome = () => {
     model.state.selectedCategory = '';
     model.state.categoryIcon = '';
     quizHeader.innerHTML = '';
-    startPageView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
+    categorySelectView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
 }
 
 async function init() {
     await model.getData('data.json');
-    startPageView.addClickHandler(selectCategoryAndStartQuiz);
+    categorySelectView.addClickHandler(selectCategoryAndStartQuiz);
     quizView.addClickHandler(showResult);
     resultView.addClickHandler(returnToHome);
-    startPageView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
+    categorySelectView.render(model.state.data.quizzes.map(el => ({"title": el.title, "icon": el.icon})));
 }
 
 init();

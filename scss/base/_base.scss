@@ -4,7 +4,10 @@
     --desktop-background: url("assets/images/pattern-background-desktop-light.svg");
 
     --page-background: #F4F6FA;
-    --font-color: #313E51;
+    --list-item-background: #FFFFFF;
+
+    --primary-font-color: #313E51;
+    --secondary-font-color: #626C7F;
 
 }
 
@@ -14,10 +17,13 @@
     --desktop-background: url("assets/images/pattern-background-desktop-dark.svg");
 
     --page-background: #313E51;
-    --font-color: #FFFFFF;
+    --list-item-background: #3B4D66;
+
+    --primary-font-color: #FFFFFF;
+    --secondary-font-color: #ABC1E1;
 }
 
 body {
     background: var(--mobile-background) var(--page-background);
-    color: var(--font-color);
+    color: var(--primary-font-color);
 }
