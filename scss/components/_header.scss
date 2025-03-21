@@ -11,7 +11,7 @@
     }
 
     &__action {
-        @include a.add-flex($gap: a.rem(8));
+        @include a.add-flex($gap: a.rem(8), $align-items: center);
         margin-left: auto;
 
         .icon-sun,
