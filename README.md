@@ -46,8 +46,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Link](https://github.com/a-d14/quiz-app-frontend-mentor)
+- Live Site URL: [Link](https://a-d14.github.io/quiz-app-frontend-mentor)
 
 ## My process
 
