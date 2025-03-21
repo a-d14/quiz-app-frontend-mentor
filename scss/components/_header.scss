@@ -14,9 +14,20 @@
         @include a.add-flex($gap: a.rem(8));
         margin-left: auto;
 
-        & > img {
+        .icon-sun,
+        .icon-moon {
             width: a.rem(16);
             height: a.rem(16);
+        }
+
+        .icon-sun {
+            background: var(--sun-svg);
+            background-size: cover;
+        }
+
+        .icon-moon {
+            background: var(--moon-svg);
+            background-size: cover;
         }
     }
 

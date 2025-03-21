@@ -11,6 +11,8 @@
     --primary-font-color: #313E51;
     --secondary-font-color: #626C7F;
 
+    --sun-svg: url("assets/images/icon-sun-dark.svg");
+    --moon-svg: url("assets/images/icon-moon-dark.svg");
 }
 
 :root[data-theme="dark"] {
@@ -23,6 +25,9 @@
 
     --primary-font-color: #FFFFFF;
     --secondary-font-color: #ABC1E1;
+
+    --sun-svg: url("assets/images/icon-sun-light.svg");
+    --moon-svg: url("assets/images/icon-moon-light.svg");
 }
 
 body {
