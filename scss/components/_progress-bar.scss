@@ -1,0 +1,31 @@
+@use '../abstracts/' as a;
+
+.countdown-bar[value] {
+    -webkit-appearance:none;
+    -moz-appearance:none;        
+    appearance: none;
+    border: 2px solid white;
+    border-radius: a.rem(999);
+
+    &::-webkit-progress-bar {
+        background-color: #FFFFFF;
+        border: 2px solid white;
+        border-radius: a.rem(999);
+    }
+
+    &::-webkit-progress-value {
+        background-color: #A729F5;
+        border-radius: a.rem(999);
+    }
+
+    &::-moz-progress-bar {
+        background-color: #FFFFFF;
+        border: 2px solid white;
+        border-radius: a.rem(999);
+    }
+
+    &::-moz-progress-value {
+        background-color: #A729F5;
+        border-radius: a.rem(999);
+    }
+}

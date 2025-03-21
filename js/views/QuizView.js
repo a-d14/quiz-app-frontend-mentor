@@ -136,7 +136,7 @@ class QuizView extends View {
                 <section class="quiz__question">
                     <span class="quiz__question-header body-italic">Question ${this._data.currentIndex + 1} of ${this._data.questions.length}</span>
                     <h2 class="heading-medium">${this._data.questions[this._data.currentIndex].question.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</h2>
-                    <progress class="quiz__countdown countdown-bar" style="display: block; width: 100%" id="countdown-bar" value="${this._timeLimit}" max="${this._timeLimit}"></progress>
+                    <progress class="quiz__countdown countdown-bar" id="countdown-bar" value="${this._timeLimit}" max="${this._timeLimit}"></progress>
                 </section>
                 <section class="quiz__body">
                     <ul class="quiz__options">

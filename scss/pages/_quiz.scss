@@ -16,6 +16,7 @@
     }
 
     &__countdown {
+        width: 100%;
         margin-top: auto;
     }
 
@@ -38,7 +39,6 @@
         }
 
         &__action {
-            gap: a.rem(32);
             margin-left: auto;
         }
 
