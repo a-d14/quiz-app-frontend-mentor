@@ -8,32 +8,46 @@ input:where([type="checkbox"][role="switch"]) {
     position: relative;
 
     width: a.rem(32);
-    height: a.rem(16);
+    height: a.rem(20);
 
     box-sizing: content-box;
-    border: 1px solid transparent;
     border-radius: 1rem;
 
-    // vertical-align: text-bottom;
     margin: auto;
     background-color: #A729F5;
+
+    vertical-align: text-bottom;
+
+    @media all and (min-width: 768px) {
+        width: a.rem(48);
+        height: a.rem(28);
+    }
 }
 
 input:where([type="checkbox"][role="switch"])::before {
     content: "";
     position: absolute;
     top: 50%;
-    left: 0;
+    left: a.rem(2);
     transform: translate(0, -50%);
     box-sizing: border-box;
-    width: 0.7em;
-    height: 0.7em;
-    margin: 0 0.15em;
+    width: a.rem(14);
+    height: a.rem(14);
     border: 1px solid transparent;
     border-radius: 50%;
     background: #FFFFFF;
+
+    @media all and (min-width: 768px) {
+        left: a.rem(4);
+        width: a.rem(20);
+        height: a.rem(20);
+    }
 }
 
 input:where([type="checkbox"][role="switch"]):checked::before {
-    left: 1em;
+    left: a.rem(14);
+
+    @media all and (min-width: 768px) {
+        left: a.rem(24);
+    }
 }

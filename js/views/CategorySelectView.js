@@ -25,7 +25,7 @@ class CategorySelectView extends View {
                     ${this._data.map(el => `
                         <li data-title='${el.title}'>
                             <div class="svg-container" data-title="${el.title}">
-                                <img src=${el.icon}>
+                                <img src=${el.icon} alt=${el.title}>
                             </div>
                             <span class="heading-small">${el.title}</span>
                         </li>
