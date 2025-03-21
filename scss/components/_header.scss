@@ -1,0 +1,22 @@
+@use '../abstracts/' as a;
+
+.header {
+    padding: a.rem(16) 0;
+    max-width: a.rem(1160);
+    width: 100%;
+    @include a.add-flex($align-items: center);
+
+    &__title {
+        @include a.add-flex($align-items: center, $gap: a.rem(16));
+    }
+
+    &__action {
+        @include a.add-flex($gap: a.rem(8));
+        margin-left: auto;
+
+        & > img {
+            width: a.rem(16);
+            height: a.rem(16);
+        }
+    }
+}

@@ -2,10 +2,12 @@ import View from "./View.js";
 
 class QuizView extends View {
     _data;
+    _action;
     _parentElement = document.querySelector('main');
 
     _selectedOption;
     _answer;
+
     _invalidSubmission = false;
     _state = 'no selection';
     _numberOfCorrectAnswers = 0;
@@ -13,19 +15,15 @@ class QuizView extends View {
     _timeLimit = 10000;
     _timer;
 
-    _action;
-
     addClickHandler(action) {
         this._action = action;
 
-        document.querySelector('.options-list').addEventListener('click', (e) => {
+        document.querySelector('.quiz__options').addEventListener('click', (e) => {
             if(this._state !== 'submitted') {
                 this._state = 'option selected';
                 this._invalidSubmission = false;
                 this._displayOrHideError();
-                this._selectedOption = e.target.closest('li').dataset.option;
-                console.log(this._selectedOption);
-                
+                this._selectedOption = e.target.closest('li').dataset.option;                
                 this._generateOptionsHTML();
             }
         });
@@ -46,13 +44,10 @@ class QuizView extends View {
             if(this._answer === this._selectedOption) {
                 this._numberOfCorrectAnswers++;
             }
-            console.log(this._numberOfCorrectAnswers);
             this._generateOptionsHTML();
             this._generateSubmitButtonHTML();
             clearInterval(this._timer);
-        } else if (this._state === 'submitted') {
-            console.log('here');
-            
+        } else if (this._state === 'submitted') {            
             this._selectedOption = null;
             this._answer = null;
             this._state = 'no selection';
@@ -81,6 +76,8 @@ class QuizView extends View {
 
         this._timer = setInterval(() => {
             this._timeLeft -= 10;
+            console.log(this._timeLeft);
+            
             if (progressBar) progressBar.value = this._timeLeft;
 
             if (this._timeLeft <= 0) {
@@ -97,10 +94,10 @@ class QuizView extends View {
                             'selected' : (this._state === 'submitted' && this._selectedOption === option && option !== this._answer) ? 
                             'incorrect' : (this._state === 'submitted' && this._selectedOption === option && option === this._answer) ? 
                             'correct' : ''}">
-                <div>
-                    ${String.fromCharCode('A'.charCodeAt(0) + idx)}
+                <div class="svg-container">
+                    <span class="heading-small">${String.fromCharCode('A'.charCodeAt(0) + idx)}</span>
                 </div>
-                ${option.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+                <span class="heading-small">${option.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</span>
                 ${this._state === 'submitted' && option === this._answer ? '<img src = "assets/images/icon-correct.svg" />' : ''}
                 ${this._state === 'submitted' && this._selectedOption === option && option !== this._answer ? '<img src = "assets/images/icon-incorrect.svg" />' : ''}
             </li>
@@ -108,7 +105,7 @@ class QuizView extends View {
     }
 
     _generateOptionsHTML() {
-        const optionsList = document.querySelector('.options-list');
+        const optionsList = document.querySelector('.quiz__options');
         optionsList.innerHTML = '';
         optionsList.insertAdjacentHTML('afterbegin', this._generateOptionsMarkup());
     }
@@ -136,13 +133,17 @@ class QuizView extends View {
     _generateMarkup() {
         return `
             <section class="quiz">
-                <span>Question ${this._data.currentIndex + 1} of ${this._data.questions.length}</span>
-                <h2>${this._data.questions[this._data.currentIndex].question.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</h2>
-                <progress style="display: block; width: 100%" id="countdown-bar" value="${this._timeLimit}" max="${this._timeLimit}"></progress>
-                <ul class="options-list">
-                    ${this._generateOptionsMarkup()}
-                </ul>
-                <button id="submit-answer" class="submit-button">Submit Answer</button>
+                <section class="quiz__question">
+                    <span class="quiz__question-header body-italic">Question ${this._data.currentIndex + 1} of ${this._data.questions.length}</span>
+                    <h2 class="heading-medium">${this._data.questions[this._data.currentIndex].question.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</h2>
+                    <progress class="quiz__countdown countdown-bar" style="display: block; width: 100%" id="countdown-bar" value="${this._timeLimit}" max="${this._timeLimit}"></progress>
+                </section>
+                <section class="quiz__body">
+                    <ul class="quiz__options">
+                        ${this._generateOptionsMarkup()}
+                    </ul>
+                </section>
+                <button id="submit-answer" class="quiz__submit submit-button heading-small">Submit Answer</button>
             </section>
         `;
     }

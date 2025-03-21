@@ -1,3 +1,5 @@
+@use '../abstracts/' as a;
+
 :root[data-theme="light"] {
     --mobile-background: url("assets/images/pattern-background-mobile-light.svg");
     --tablet-background: url("assets/images/pattern-background-tablet-light.svg");
@@ -25,5 +27,28 @@
 
 body {
     background: var(--mobile-background) var(--page-background);
+    background-size: cover;
     color: var(--primary-font-color);
+
+    padding: 0 a.rem(24);
+
+    @include a.add-flex(column, $align-items: center);
+
+    @media all and (min-width: 768px) {
+        background: var(--tablet-background) var(--page-background);
+        background-size: cover;
+        padding: 0 a.rem(64);
+    }
+
+    @media all and (min-width: 1440px) {
+        background: var(--desktop-background) var(--page-background);
+        background-size: cover;
+        padding: 0 a.rem(140);
+    }
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+    @include a.add-flex(column, $justify-content: center, $align-items: center);
 }

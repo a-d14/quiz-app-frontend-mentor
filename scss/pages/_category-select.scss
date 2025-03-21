@@ -1,5 +1,31 @@
 @use "../abstracts" as a;
 
 .category-select {
-    padding: a.rem(32) a.rem(24);
+    padding: a.rem(32) 0;
+    max-width: a.rem(1160);
+    width: 100%;
+
+    @include a.add-flex(column, $gap: a.rem(40), $justify-content: center, $align-items: center);
+
+    &__welcome-message {
+
+        align-self: flex-start;
+
+        &-heading > * {
+            display: block;
+        }
+
+        &-subheading {
+            color: var(--secondary-font-color);
+        }
+
+        @include a.add-flex(column, $gap: a.rem(16));
+    }
+
+    @media all and (min-width: 1440px) {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+    }
+
 }

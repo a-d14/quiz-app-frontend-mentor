@@ -1,5 +1,42 @@
 @use "../abstracts" as a;
 
 .quiz {
-    padding: a.rem(32) a.rem(24);
+    padding: a.rem(32) 0;
+    max-width: a.rem(1160);
+    width: 100%;
+
+    @include a.add-flex(column, $gap: a.rem(40));
+
+    &__question {
+        @include a.add-flex(column, $gap: a.rem(24));
+        
+        &-header {
+            color: var(--secondary-font-color);
+        }
+    }
+
+    &__countdown {
+        margin-top: auto;
+    }
+
+    @media all and (min-width: 1440px) {
+
+        @include a.add-flex($flex-direction: row, $justify-content: space-between, $gap: 0, $flex-wrap: wrap);
+        row-gap: a.rem(32);
+
+        &__question {
+            width: a.rem(452);
+        }
+
+        &__body,
+        &__submit {
+            width: a.rem(564);
+        }
+
+        &__submit {
+            margin-left: auto;
+        }
+
+    }
+
 }

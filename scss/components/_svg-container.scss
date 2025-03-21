@@ -1,0 +1,27 @@
+@use '../abstracts/' as a;
+
+.svg-container {
+    width: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
+    height: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
+    display: grid;
+    align-content: center;
+    flex-shrink: 0;
+    padding: a.rem(6);
+    border-radius: a.rem(8);
+
+    &[data-title="HTML"] {
+        background-color: #FFF1E9;
+    }
+
+    &[data-title="CSS"] {
+        background-color: #E0FDEF;
+    }
+
+    &[data-title="JavaScript"] {
+        background-color: #EBF0FF;
+    }
+
+    &[data-title="Accessibility"] {
+        background-color: #F6E7FF;
+    }
+}

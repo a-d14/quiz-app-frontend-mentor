@@ -24,10 +24,10 @@ const selectCategoryAndStartQuiz = (categoryName) => {
     const data = {questions: currentQuestions, currentIndex: 0};
 
     quizHeader.insertAdjacentHTML('afterbegin', `
-        <div>
+        <div class="svg-container" data-title="${model.state.selectedCategory}">
             <img src=${model.state.categoryIcon}>
         </div>
-        <span>${model.state.selectedCategory}</span>
+        <span class="heading-small">${model.state.selectedCategory}</span>
     `);
 
     quizView.render(data);

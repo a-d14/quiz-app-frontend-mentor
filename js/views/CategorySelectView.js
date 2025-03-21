@@ -14,17 +14,20 @@ class CategorySelectView extends View {
     _generateMarkup() {
         return `
             <section class="category-select">
-                <section class="welcome-message">
-                    <h1>Welcome to the Frontend Quiz!</h1>
-                    <p>Pick a subject to get started.</p>
+                <section class="category-select__welcome-message">
+                    <h1 class="category-select__welcome-message-heading">
+                        <span class="heading-large-regular">Welcome to the</span>
+                        <span class="heading-large-bold">Frontend Quiz!</span>
+                    </h1>
+                    <p class="category-select__welcome-message-subheading  body-italic">Pick a subject to get started.</p>
                 </section>
                 <ul class="category-list">
                     ${this._data.map(el => `
                         <li data-title='${el.title}'>
-                            <div>
+                            <div class="svg-container" data-title="${el.title}">
                                 <img src=${el.icon}>
                             </div>
-                            <span>${el.title}</span>
+                            <span class="heading-small">${el.title}</span>
                         </li>
                     `).join('')}
                 </ul>

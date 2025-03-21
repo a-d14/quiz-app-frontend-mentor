@@ -3,47 +3,26 @@
 %list {
     @include a.add-flex($flex-direction: column, $gap: a.rem(12));
 
+    width: 100%;
+
     & > li {
         @include a.add-flex($gap: a.rem(16), $align-items: center);
         padding: a.rem(12);
         background-color: var(--list-item-background);
         border: 3px solid transparent;
         border-radius: a.rem(12);
-
-        & > div {
-            width: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
-            height: clamp(a.rem(40), a.rem(32) + 1.5vw, a.rem(56));
-            display: grid;
-            align-content: center;
-            flex-shrink: 0;
-            padding: a.rem(6);
-            border-radius: a.rem(8);
-        }
     }
 
+    @media all and (min-width: 1440px) {
+        width: a.rem(564);
+    }
 }
 
 .category-list {
     @extend %list;
-
-    & > li[data-title="HTML"] > div {
-        background-color: #FFF1E9;
-    }
-
-    & > li[data-title="CSS"] > div {
-        background-color: #E0FDEF;
-    }
-
-    & > li[data-title="JavaScript"] > div {
-        background-color: #EBF0FF;
-    }
-
-    & > li[data-title="Accessibility"] > div {
-        background-color: #F6E7FF;
-    }
 }
 
-.options-list {
+.quiz__options {
     @extend %list;
 
     & > li > img {
@@ -53,20 +32,19 @@
 
     & > li {
 
-        &:hover > div {
+        &:hover .svg-container {
             color: purple;
             background-color: #F6E7FF;
         }
 
-        & > div {
+        .svg-container {
             background-color: #F4F6FA;
             color: #626C7F;
             text-align: center;
         }
 
         &.selected {
-
-            & > div {
+            & .svg-container {
                 background-color: #A729F5;
                 color: #FFFFFF;
             }
@@ -76,7 +54,7 @@
         }
 
         &.correct {
-            & > div {
+            & .svg-container {
                 background-color: #26D782;
                 color: #FFFFFF;
             }
@@ -85,7 +63,7 @@
         }
 
         &.incorrect {
-            & > div {
+            & .svg-container {
                 background-color: #EE5454;
                 color: #FFFFFF;
             }
