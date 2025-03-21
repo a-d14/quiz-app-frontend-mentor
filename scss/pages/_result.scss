@@ -1,0 +1,77 @@
+@use '../abstracts/' as a;
+
+.result {
+    padding: a.rem(32) 0;
+    max-width: a.rem(1160);
+    width: 100%;
+
+    @include a.add-flex(column, $gap: a.rem(40), $justify-content: center, $align-items: center);
+
+    &__card {
+        width: 100%;
+        background-color: var(--component-background);
+        border-radius: a.rem(12);
+        padding: a.rem(32);
+
+        @include a.add-flex(column, $gap: a.rem(16), $justify-content: center, $align-items: center);
+
+        &-header {
+            @include a.add-flex($align-items: center, $gap: a.rem(16));
+        }
+
+        &-body {
+            @include a.add-flex(column, $align-items: center, $gap: a.rem(16));
+        }
+    }
+
+    &__actions {
+        width: 100%;
+    }
+
+    &__completion-message {
+
+        align-self: flex-start;
+
+        > * {
+            display: block;
+        }
+
+        &-subheading {
+            color: var(--secondary-font-color);
+        }
+
+        @include a.add-flex(column, $gap: a.rem(16));
+    }
+
+    @media all and (min-width: 768px) {
+        &__card {
+            border-radius: a.rem(24);
+            padding: a.rem(48);
+            gap: a.rem(24);
+
+            &-header {
+                gap: a.rem(24);
+            }
+        }
+    }
+
+    @media all and (min-width: 1440px) {
+
+        &__completion-message {
+            // width: a.rem(452);
+        }
+
+        &__card,
+        &__actions {
+            width: a.rem(564);
+        }
+
+        &__actions {
+            // gap: a.rem(32);
+            margin-left: auto;
+        }
+
+        @include a.add-flex($flex-direction: row, $justify-content: space-between, $gap: 0, $flex-wrap: wrap);
+        row-gap: a.rem(32);
+    }
+}

@@ -15,6 +15,14 @@
     src: url("assets/fonts/static/Rubik-Italic.ttf");
 }
 
+.display {
+    font: a.rem(88)/1 'Rubik Medium', sans-serif;
+
+    @media all and (min-width: 768px) {
+        font-size: a.rem(144);
+    }
+}
+
 .heading-large-bold {
     font: a.rem(40)/1 'Rubik Medium', sans-serif;
 
@@ -56,9 +64,17 @@
 }
 
 .body-regular {
-    font: a.rem(12)/1.5 'Rubik Regular', sans-serif;
+    font: a.rem(18)/1.5 'Rubik Regular', sans-serif;
+
+    @media all and (min-width: 768px) {
+        font-size: a.rem(24);
+    }
 }
 
 .body-italic {
-    font: a.rem(12)/1.5 'Rubik Italic', sans-serif;
+    font: a.rem(14)/1.5 'Rubik Italic', sans-serif;
+
+    @media all and (min-width: 768px) {
+        font-size: a.rem(20);
+    }
 }

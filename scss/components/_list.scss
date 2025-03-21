@@ -8,14 +8,28 @@
     & > li {
         @include a.add-flex($gap: a.rem(16), $align-items: center);
         padding: a.rem(12);
-        background-color: var(--list-item-background);
+        background-color: var(--component-background);
         border: 3px solid transparent;
         border-radius: a.rem(12);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    @media all and (min-width: 768px) {
+        gap: a.rem(24);
+
+        > & li {
+            border-radius: a.rem(24);
+        }
+
     }
 
     @media all and (min-width: 1440px) {
         width: a.rem(564);
     }
+
 }
 
 .category-list {

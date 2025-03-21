@@ -6,7 +6,7 @@
     --desktop-background: url("assets/images/pattern-background-desktop-light.svg");
 
     --page-background: #F4F6FA;
-    --list-item-background: #FFFFFF;
+    --component-background: #FFFFFF;
 
     --primary-font-color: #313E51;
     --secondary-font-color: #626C7F;
@@ -19,7 +19,7 @@
     --desktop-background: url("assets/images/pattern-background-desktop-dark.svg");
 
     --page-background: #313E51;
-    --list-item-background: #3B4D66;
+    --component-background: #3B4D66;
 
     --primary-font-color: #FFFFFF;
     --secondary-font-color: #ABC1E1;
@@ -50,5 +50,9 @@ body {
 main {
     width: 100%;
     flex-grow: 1;
-    @include a.add-flex(column, $justify-content: center, $align-items: center);
+    @include a.add-flex(column, $justify-content: flex-start, $align-items: center);
+
+    @media all and (min-width: 768px) { 
+        justify-content: center;
+    }
 }

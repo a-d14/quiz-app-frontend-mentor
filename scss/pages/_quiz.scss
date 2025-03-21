@@ -19,6 +19,10 @@
         margin-top: auto;
     }
 
+    &__action {
+        @include a.add-flex($flex-direction: column, $gap: a.rem(12));
+    }
+
     @media all and (min-width: 1440px) {
 
         @include a.add-flex($flex-direction: row, $justify-content: space-between, $gap: 0, $flex-wrap: wrap);
@@ -29,11 +33,12 @@
         }
 
         &__body,
-        &__submit {
+        &__action {
             width: a.rem(564);
         }
 
-        &__submit {
+        &__action {
+            gap: a.rem(32);
             margin-left: auto;
         }
 

@@ -1,0 +1,10 @@
+@use '../abstracts/' as a;
+
+.error {
+    @include a.add-flex($justify-content: center, $align-items: center, $gap: a.rem(8));
+    color: #EE5454;
+
+    &.hidden {
+        visibility: hidden;
+    }
+}

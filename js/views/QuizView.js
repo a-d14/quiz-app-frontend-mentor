@@ -76,7 +76,7 @@ class QuizView extends View {
 
         this._timer = setInterval(() => {
             this._timeLeft -= 10;
-            console.log(this._timeLeft);
+            // console.log(this._timeLeft);
             
             if (progressBar) progressBar.value = this._timeLeft;
 
@@ -118,15 +118,15 @@ class QuizView extends View {
     }
 
     _generateErrorMarkup() {
-        return '<div id="error-msg"><img src = "assets/images/icon-error.svg" /><span>Please select an answer</span></div>';
+        return '<div class="error" id="error-msg"><img src = "assets/images/icon-error.svg" /><span class="body-regular">Please select an answer</span></div>';
     }
 
     _displayOrHideError() {
-        const parentElement = document.querySelector(".quiz");
+        const errorElement = document.getElementById('error-msg');
         if(this._invalidSubmission) {
-            parentElement.insertAdjacentHTML('beforeend', this._generateErrorMarkup());
+            errorElement.classList.remove('hidden');
         } else {
-            document.getElementById('error-msg') && parentElement.removeChild(document.getElementById('error-msg'));
+            errorElement.classList.add('hidden');
         }
     }
 
@@ -143,7 +143,10 @@ class QuizView extends View {
                         ${this._generateOptionsMarkup()}
                     </ul>
                 </section>
-                <button id="submit-answer" class="quiz__submit submit-button heading-small">Submit Answer</button>
+                <section class="quiz__action">
+                    <button id="submit-answer" class="btn-primary heading-small">Submit Answer</button>
+                    <div class="error hidden" id="error-msg"><img src = "assets/images/icon-error.svg" /><span class="body-regular">Please select an answer</span></div>
+                </section>
             </section>
         `;
     }
