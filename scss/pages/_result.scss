@@ -57,17 +57,12 @@
 
     @media all and (min-width: 1440px) {
 
-        &__completion-message {
-            // width: a.rem(452);
-        }
-
         &__card,
         &__actions {
             width: a.rem(564);
         }
 
         &__actions {
-            // gap: a.rem(32);
             margin-left: auto;
         }
 

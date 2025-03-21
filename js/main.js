@@ -6,11 +6,15 @@ import resultView from './views/ResultView.js';
 const rootElement = document.documentElement;
 const themeToggle = document.getElementById('theme-toggle');
 
+rootElement.dataset.theme = localStorage.getItem('theme') ?? 'light';
+
 themeToggle.addEventListener('change', (e) => {
     if(!e.target.checked) {
         rootElement.dataset.theme = 'light';
+        localStorage.setItem('theme', 'light');
     } else {
         rootElement.dataset.theme = 'dark';
+        localStorage.setItem('theme', 'dark');
     }
 });
 
